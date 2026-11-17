@@ -1174,5 +1174,30 @@
     "saveCategoryFirst": "Salve primeiro a categoria e depois altere o tipo ou a conta.",
     "typeNotForAccount": "Este tipo não está disponível para esta conta.",
     "amountRequired": "O valor é obrigatório."
+  },
+  "sheetImport": {
+    "title": "Import from spreadsheet",
+    "description": "Bring in expenses or income from a CSV file exported from your spreadsheet.",
+    "kindLabel": "Which sheet is this?",
+    "kindExpense": "Expenses (Date, Item, Amount, Category, Source)",
+    "kindMutasi": "Income and movements (Date, Type, From, To, Amount, Note)",
+    "fileLabel": "CSV file",
+    "readError": "Could not read this file. Make sure it is a CSV exported from your sheet.",
+    "ready": "{{total}} rows are ready to import.",
+    "skipped": "{{total}} empty or example rows were left out.",
+    "transfersSkipped": "{{total}} transfers were left out. Transfers are not imported yet.",
+    "badRows": "{{total}} rows could not be read (rows: {{rows}}).",
+    "accountsHeading": "Match each source to an account",
+    "chooseAccount": "Choose account",
+    "noAccounts": "There is no cash account yet. Create one first, then import again.",
+    "categoriesHeading": "Match each category",
+    "noCategory": "No category",
+    "cancel": "Cancel",
+    "close": "Close",
+    "importing": "Importing…",
+    "importButton": "Import {{total}} rows",
+    "done": "{{total}} rows imported.",
+    "duplicates": "{{total}} rows were already in the app and were not added again.",
+    "failed": "{{total}} rows could not be imported."
   }
 }

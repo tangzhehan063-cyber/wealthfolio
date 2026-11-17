@@ -3,6 +3,7 @@ import {
   spendingEntryNavigationOptions,
 } from "@/features/spending/lib/activity-entry";
 import { ActionPalette, type ActionPaletteGroup } from "@/components/action-palette";
+import { SheetImportDialog } from "@/features/spending/components/sheet-import-dialog";
 import { syncService } from "@/features/devices-sync";
 import { useSyncStatus } from "@/features/devices-sync/hooks";
 import { SyncStates } from "@/features/devices-sync/types";
@@ -41,6 +42,7 @@ export function DashboardActions({
   const navigate = useNavigate();
   const location = useLocation();
   const [open, setOpen] = useState(false);
+  const [sheetImportOpen, setSheetImportOpen] = useState(false);
 
   // Portfolio update mutations
   const updatePortfolioMutation = useUpdatePortfolioMutation();
@@ -134,6 +136,11 @@ export function DashboardActions({
                     ),
                 },
                 {
+                  icon: Icons.Download,
+                  label: t("spending:sheetImport.title"),
+                  onClick: () => setSheetImportOpen(true),
+                },
+                {
                   icon: Icons.Plus,
                   label: t("spending:txTab.addTransaction"),
                   onClick: () =>
@@ -200,20 +207,23 @@ export function DashboardActions({
   ]);
 
   return (
-    <ActionPalette
-      open={open}
-      onOpenChange={setOpen}
-      groups={groups}
-      trigger={
-        <Button
-          variant="secondary"
-          size="icon-xs"
-          className="rounded-full"
-          aria-label={t("common:layout.more_options")}
-        >
-          <Icons.DotsThreeVertical className="size-5" weight="fill" />
-        </Button>
-      }
-    />
+    <>
+      <ActionPalette
+        open={open}
+        onOpenChange={setOpen}
+        groups={groups}
+        trigger={
+          <Button
+            variant="secondary"
+            size="icon-xs"
+            className="rounded-full"
+            aria-label={t("common:layout.more_options")}
+          >
+            <Icons.DotsThreeVertical className="size-5" weight="fill" />
+          </Button>
+        }
+      />
+      {sheetImportOpen && <SheetImportDialog open onOpenChange={setSheetImportOpen} />}
+    </>
   );
 }
